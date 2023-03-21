@@ -114,7 +114,7 @@ const AddProduct = () => {
                   }
                 >
                   <option value="0" id="DVD">
-                    DVD-disc
+                    DVD
                   </option>
                   <option value="1" id="Book">
                     Book
@@ -221,7 +221,7 @@ const AddProduct = () => {
                 className="btn btn-primary"
                 name="submit"
               >
-                Submit
+                Save
               </button>
               <button
                 onClick={() => clearForm()}
