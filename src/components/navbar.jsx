@@ -32,7 +32,7 @@ const Navbar = () => {
                 onClick={() => navigate("/add-product")}
                 style={{ cursor: "pointer" }}
               >
-                Add
+                ADD
               </a>
             </li>
           </ul>
