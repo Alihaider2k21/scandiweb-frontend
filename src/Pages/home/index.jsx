@@ -39,7 +39,6 @@ const Home = () => {
 
   useEffect(() => {
     getAllProducts();
-    checkbox();
   }, []);
   return (
     <div>
