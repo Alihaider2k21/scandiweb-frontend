@@ -74,7 +74,7 @@ const Home = () => {
                     <label class="form-check-label">
                       <input
                         type="checkbox"
-                        className="delete-checkbox form-check-input"
+                        className="delete-checkbox"
                         name="products[]"
                         value={product.sku}
                         onChange={(e) => handleCheckBox(e)}
