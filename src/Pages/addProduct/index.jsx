@@ -50,7 +50,6 @@ const AddProduct = () => {
       <div className="jumbotron text-center">
         <h1>Add product</h1>
       </div>
-
       <div className="container">
         <div className="row">
           <div className="col-12">
