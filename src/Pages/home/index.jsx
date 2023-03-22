@@ -4,22 +4,14 @@ import Navbar from "../../components/navbar";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
+  const getAllProducts = async () => {
+    const endpoint =
+      "https://alihaiderscandiweb.000webhostapp.com/products/get";
+    const response = await axios.get(endpoint);
+    setProducts(response.data);
+  };
 
   const [checkedProducts, setCheckedProducts] = useState([]);
-
-  const deleteProduct = async () => {
-    // products.map((products)=>products.)
-    // const checkbox = document.getElementsByName("products[]");
-
-    const formData = new FormData();
-    checkedProducts.map((product, index) => formData.append(index, product));
-
-    const response = await axios.post(
-      "https://alihaiderscandiweb.000webhostapp.com/products/delete",
-      formData
-    );
-    getAllProducts();
-  };
 
   const handleCheckBox = (e) => {
     const { checked, value } = e.target;
@@ -43,14 +35,22 @@ const Home = () => {
   // };
 
   useEffect(() => {
-    const getAllProducts = async () => {
-      const endpoint =
-        "https://alihaiderscandiweb.000webhostapp.com/products/get";
-      const response = await axios.get(endpoint);
-      setProducts(response.data);
-    };
     getAllProducts();
   }, []);
+
+  const deleteProduct = async () => {
+    // products.map((products)=>products.)
+    // const checkbox = document.getElementsByName("products[]");
+
+    const formData = new FormData();
+    checkedProducts.map((product, index) => formData.append(index, product));
+
+    const response = await axios.post(
+      "https://alihaiderscandiweb.000webhostapp.com/products/delete",
+      formData
+    );
+    getAllProducts();
+  };
 
   if (!products) {
     return <div>Loading...</div>;
