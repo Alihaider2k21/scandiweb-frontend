@@ -5,10 +5,16 @@ import Navbar from "../../components/navbar";
 const Home = () => {
   const [products, setProducts] = useState([]);
   const getAllProducts = async () => {
-    const endpoint =
-      "https://alihaiderscandiweb.000webhostapp.com/products/get";
-    const response = await axios.get(endpoint);
-    setProducts(response.data);
+    const localProducts = localStorage.getItem("products");
+    setProducts(localProducts);
+    if (!localProducts) {
+      const endpoint =
+        "https://alihaiderscandiweb.000webhostapp.com/products/get";
+      const response = await axios.get(endpoint, {
+        headers: { "Content-Type": "application/json" },
+      });
+      setProducts(response.data);
+    }
   };
 
   const [checkedProducts, setCheckedProducts] = useState([]);
