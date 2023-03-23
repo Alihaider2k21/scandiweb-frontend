@@ -37,8 +37,7 @@ const AddProduct = () => {
     }
     const res = await axios.post(
       "https://alihaiderscandiweb.000webhostapp.com/products/add",
-      formData,
-      { headers: { "Content-Type": "application/json" } }
+      formData
     );
     setResponse(res.data);
     if (res.data.status !== "danger") {
